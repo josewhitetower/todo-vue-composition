@@ -2,7 +2,7 @@ import { reactive } from "@vue/composition-api";
 
 const useTodo = () => {
     let state = reactive({
-        todos: [{title:"hello", id: 1, isDone: true}]
+        todos: [],
     })
 
     const addNewTodo = (todo) => {

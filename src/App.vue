@@ -1,6 +1,5 @@
 <template>
   <div id="app" class="max-w-lg mx-auto h-screen px-2">
-    <font-awesome-icon icon="user-secret" />
     <TodoList/>
   </div>
 </template>
