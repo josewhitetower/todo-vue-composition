@@ -20,10 +20,9 @@
 </template>
 
 <script>
-import uuid from "uuid/v4";
 import { reactive } from '@vue/composition-api';
 export default {
-    setup(props, {emit}) {
+    setup() {
 
         const state = reactive({
             title: ""
@@ -32,17 +31,11 @@ export default {
 
         return {
             title,
-            emit
         }
     },
     methods: {
         handleSubmit(){
-            const todo = {
-                id: uuid(),
-                title: this.title,
-                isDone: false
-            }
-            this.emit('add', todo);
+            this.$emit('add', this.title);
             this.title = '';
         }
     }

@@ -4,7 +4,7 @@
     >
         <h1 class="text-3xl uppercase font-thin mb-4">Todo List!</h1>
         <ul>
-            <li v-for="todo in todos" :key="todo.id"><Todo :todo="todo" /></li>
+            <li v-for="(todo, index) in todos" :key="todo.id"><Todo :todo="todo" @remove="() => removeTodo(index)" @toggle="() => toggleTodo(index)" @edit="(value) => editTodo(index, value)"/></li>
         </ul>
         <NewTodoForm @add="addNewTodo" />
     </div>
@@ -21,10 +21,10 @@ export default {
     },
 
     setup() {
-        const {state, addNewTodo} = useTodo();
+        const {state, addNewTodo, removeTodo, toggleTodo, editTodo} = useTodo();
         const {todos} = state
         return {
-            todos, addNewTodo
+            todos, addNewTodo, removeTodo, toggleTodo, editTodo
         }
     }
 
