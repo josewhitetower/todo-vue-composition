@@ -1,7 +1,7 @@
 <template>
     <div class="Todo bg-red-400 p-4 mb-2 text-left font-semibold hover:bg-red-300">
         <div v-if="!isEditing" class="flex justify-between items-center">
-            <p :class="todo.isDone ? 'line-through': ''" @click="handleTitleClick">{{todo.title}}</p>
+            <p :class="todo.isDone ? 'line-through': ''" @click="handleTitleClick" @dblclick="handleEditTodo">{{todo.title}}</p>
             <div class="flex">
                 <font-awesome-icon icon="pen" class="cursor-pointer" @click="handleEditTodo"/>
                 <font-awesome-icon icon="trash" class="ml-2 cursor-pointer" @click="handleRemove"/>
