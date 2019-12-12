@@ -2,12 +2,10 @@ import { reactive } from "@vue/composition-api";
 const useTodo = () => {
     let state = reactive({
         todos: JSON.parse(localStorage.getItem("todos") || "[]"),
-        todo: {}
     })
 
     const addNewTodo = (title) => {
         state.todos.push({title, isDone:false});
-        state.todo = {};
         save();
     }
 
