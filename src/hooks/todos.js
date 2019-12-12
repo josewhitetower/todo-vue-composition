@@ -26,8 +26,8 @@ const useTodo = () => {
         save();
     }
 
-    const save = () => {
-        localStorage.setItem("todos", JSON.stringify(state.todos));
+    const save = (todos = state.todos) => {
+        localStorage.setItem("todos", JSON.stringify(todos));
     };
 
     return {

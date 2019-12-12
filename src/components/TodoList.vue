@@ -6,7 +6,7 @@
         <!-- <ul>
             <li v-for="(todo, index) in todos" :key="todo.id"><Todo :todo="todo" @remove="() => removeTodo(index)" @toggle="() => toggleTodo(index)" @edit="(value) => editTodo(index, value)"/></li>
         </ul> -->
-        <draggable v-model="todos" group="people" @start="drag=true" @end="(event) => toggleDrag(drag, event)">
+        <draggable v-model="todos" group="people" @start="drag=true" @end="drag=false" :list="todos" @update="() => save(todos)">
             <Todo v-for="(todo, index) in todos" :key="todo.id" :todo="todo" @remove="() => removeTodo(index)" @toggle="() => toggleTodo(index)" @edit="(value) => editTodo(index, value)"/>
         </draggable>
         <NewTodoForm @add="addNewTodo" />
@@ -28,13 +28,8 @@ export default {
     setup() {
         const {state, addNewTodo, removeTodo, toggleTodo, editTodo, save} = useTodo();
         const {todos} = state
-        // eslint-disable-next-line no-unused-vars
-        const toggleDrag = (drag, event) => {
-            drag = false;
-            save()
-        }
         return {
-            todos, addNewTodo, removeTodo, toggleTodo, editTodo, toggleDrag
+            todos, addNewTodo, removeTodo, toggleTodo, editTodo, save
         }
     }
 
