@@ -31,7 +31,7 @@ const useTodo = () => {
     };
 
     return {
-        state, addNewTodo, removeTodo, toggleTodo, editTodo
+        state, addNewTodo, removeTodo, toggleTodo, editTodo, save
     }
 }
 
