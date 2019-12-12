@@ -1,5 +1,8 @@
 # todo-vue-composition
 
+## Live preview
+https://todo-vue-composition.netlify.com
+
 ## Project setup
 ```
 npm install
